@@ -1,0 +1,55 @@
+
+You are developing a Smart Feedback Analyzer for a Fitness App.
+The app collects written feedback from users about:
+
+ Workout programs
+ Trainers
+ Diet plans
+ Mobile app experience
+
+The company wants a basic Java tool to automatically analyze this feedback.
+
+Your Task:
+
+Write a Java program that:
+
+1. Accepts multi-line feedback from the user.
+   (Use `"end"` as the keyword to finish input)
+
+2. Splits the feedback into sentences based on punctuation: `.`.
+
+3. For each sentence:
+
+    If it contains positive words like:
+     `"good", "great", "awesome", "love", "excellent"`
+     → Count it as positive
+    If it contains negative words like:
+     `"bad", "poor", "hate", "worst", "terrible", "dislike"`
+     → Count it as negative
+    Otherwise → Count it as neutral
+
+4. At the end, print a summary:
+
+   
+   Total Sentences   : X
+   Positive Sentences: Y
+   Negative Sentences: Z
+   Neutral Sentences : W
+   
+
+
+
+Example Input:
+
+
+I love this app! The workouts are excellent.
+But the diet plan is bad. I hate how slow it loads.
+Overall, it's okay. 
+end
+
+Expected Output:
+
+Total Sentences   : 4
+Positive Sentences: 2
+Negative Sentences: 2
+Neutral Sentences : 1
