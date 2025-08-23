@@ -1,0 +1,60 @@
+Scenario:
+
+A parking lot system calculates fees for individual vehicles based on:
+
+* Vehicle type (Car / Bike / Truck)
+* Hours parked
+* Special discounts
+
+ Your Program Should:
+
+1. Accept input for one vehicle at a time:
+
+   * Vehicle number (String)
+   * Vehicle type (String): "Car", "Bike", or "Truck"
+   * Hours parked (int)
+
+2. Charges based on type:
+   * Car → ₹20/hour
+   * Bike → ₹10/hour
+   * Truck → ₹30/hour
+
+3. Additional rules:
+
+   * If parked more than 10 hours → 10% discount on total fee
+   * If the vehicle type is Truck and hours > 5 → add ₹100 heavy vehicle fee
+
+4. Calculate:
+
+   * Base charge
+   * Discount or extra charge (if any)
+   * Final charge
+   * Print detailed bill for the vehicle
+
+ Features to Use:
+
+* instance variables for each vehicle
+* static variables for tracking total vehicles and revenue (optional)
+* methods:
+
+  * calculateBaseCharge()
+  * applyDiscountOrSurcharge()
+  * printBill()
+* decision-making using if-else
+
+
+Sample Input:
+
+Vehicle No: AP29CD1234  
+Type: Car  
+Hours: 12
+
+Sample Output:
+
+Vehicle: AP29CD1234  
+Type: Car  
+Hours: 12  
+Base Charge: ₹240  
+Discount: ₹24  
+Final Charge: ₹216
+
