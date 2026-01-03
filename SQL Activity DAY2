@@ -1,0 +1,40 @@
+1. Create Table
+Create a table named Employee with the following columns:
+Column Name	Data Type	Description
+employee_id	INT	Employee unique ID
+employee_name	VARCHAR(50)	Name of the employee
+employee_salary	DECIMAL(8,2)	Salary of the employee
+department	VARCHAR(30)	Department of the employee
+is_active	BOOLEAN	Status (TRUE = active, FALSE = inactive)
+
+2. Alter Table – Add Column
+Add a new column email of type VARCHAR(50) to the Employee table.
+
+3. Alter Table – Modify Column Name
+Rename the column employee_salary to salary.
+
+4. Rename Table
+Rename the table Employee to Employee_Details.
+
+5. Insert Data (All Columns)
+Insert the following employee records:
+employee_id	employee_name	salary	department	is_active
+201	Ravi	55000.50	IT	TRUE
+202	Anitha	62000.75	HR	TRUE
+
+6. Insert Limited Data
+Insert a new employee with only employee_id and employee_name:
+employee_id	employee_name
+203	Kiran
+
+7. Update Data
+Update the salary of employee with employee_id = 203 to 48000.
+
+8. Delete Data
+Delete the employee record whose employee_id = 202.
+
+9. Display All Data
+Display all records from Employee_Details table.
+
+10. Display Limited Columns
+Display only employee_name and salary from Employee_Details.
