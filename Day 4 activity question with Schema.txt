@@ -1,0 +1,116 @@
+Day 4 activity question
+Employee table
+
+CREATE TABLE Employee (
+  emp_id INT,
+  emp_name VARCHAR(50),
+  department VARCHAR(30),
+  salary DECIMAL(8,2),
+  joining_year INT,
+  is_active BOOLEAN
+);
+
+INSERT INTO Employee VALUES
+(1, 'Amit', 'IT', 60000, 2019, TRUE),
+(2, 'Neha', 'IT', 75000, 2021, TRUE),
+(3, 'Ravi', 'HR', 45000, 2018, TRUE),
+(4, 'Priya', 'HR', 52000, 2020, FALSE),
+(5, 'Suresh', 'Finance', 80000, 2017, TRUE),
+(6, 'Kiran', 'Finance', 90000, 2022, TRUE),
+(7, 'Anjali', 'IT', NULL, 2023, TRUE),
+(8, 'Manoj', 'Admin', 40000, 2016, FALSE);
+
+Aggregate Function Questions
+Write a query to count the total number of employees.
+Write a query to count employees whose salary is not NULL.
+Write a query to find the total salary paid to all employees.
+Write a query to find the average salary of employees.
+Write a query to find the minimum salary in the company.
+Write a query to find the maximum salary in the company.
+Write a query to display the number of employees in each department.
+Write a query to find the total salary for each department.
+Write a query to find the average salary of each department.
+Write a query to display departments having more than one employee.
+Write a query to display departments whose average salary is greater than 60000.
+Write a query to display the highest salary in each department.
+Write a query to rename the output column as Total_Salary while calculating department-wise salary.
+Write a query to classify employees as ‘Low’, ‘Medium’, or ‘High’ based on salary using CASE.
+Write a query to display active and inactive employees using CASE.
+Write a query to find the earliest joining year.
+Write a query to find the latest joining year.
+Write a query to count employees department-wise and filter using HAVING.
+Write a query to find departments with total salary greater than 100000.
+Write a query to display department-wise employee count sorted in descending order.
+
+
+Aggregate Function Answers:
+Write a query to count the total number of employees.
+SELECT COUNT(*) FROM Employee;
+
+Write a query to count employees whose salary is not NULL.
+SELECT COUNT(salary) FROM Employee;
+
+Write a query to find the total salary paid to all employees.
+SELECT SUM(salary) FROM Employee;
+
+Write a query to find the average salary of employees.
+SELECT AVG(salary) FROM Employee;
+
+Write a query to find the minimum salary in the company.
+SELECT MIN(salary) FROM Employee;
+
+Write a query to find the maximum salary in the company.
+SELECT MAX(salary) FROM Employee;
+
+Write a query to display the number of employees in each department.
+SELECT department, COUNT(*) FROM Employee GROUP BY department;
+
+Write a query to find the total salary for each department.
+SELECT department, SUM(salary) FROM EmployeeGROUP BY department;
+
+Write a query to find the average salary of each department.
+SELECT department, AVG(salary) FROM EmployeeGROUP BY department;
+
+Write a query to display departments having more than one employee.
+SELECT department, COUNT(*) FROM Employee GROUP BY department HAVING COUNT(*) > 1;
+
+Write a query to display departments whose average salary is greater than 60000.
+SELECT department, AVG(salary) FROM Employee GROUP BY departmentHAVING AVG(salary) > 60000;
+
+Write a query to display the highest salary in each department.
+SELECT department, MAX(salary) FROM Employee GROUP BY department;
+
+Write a query to rename the output column as Total_Salary while calculating department-wise salary.
+SELECT department, SUM(salary) AS Total_Salary FROM Employee GROUP BY department;
+
+Write a query to classify employees as ‘Low’, ‘Medium’, or ‘High’ based on salary using CASE.
+SELECT emp_name, salary,
+CASE
+  WHEN salary < 50000 THEN 'Low'
+  WHEN salary BETWEEN 50000 AND 80000 THEN 'Medium'
+  ELSE 'High'
+END AS Salary_Level
+FROM Employee;
+
+Write a query to display active and inactive employees using CASE.
+SELECT emp_name,
+CASE
+  WHEN is_active = TRUE THEN 'Active'
+  ELSE 'Inactive'
+END AS Status
+FROM Employee;
+
+Write a query to find the earliest joining year.
+SELECT MIN(joining_year) FROM Employee;
+
+Write a query to find the latest joining year.
+SELECT MAX(joining_year) FROM Employee;
+
+Write a query to count employees department-wise and filter using HAVING.
+SELECT department, COUNT(*) FROM Employee GROUP BY department HAVING COUNT(*) >= 1;
+
+Write a query to find departments with total salary greater than 100000.
+SELECT department, SUM(salary) FROM Employee GROUP BY departmentHAVING SUM(salary) > 100000;
+
+Write a query to display department-wise employee count sorted in descending order.
+SELECT department, COUNT(*) AS emp_count FROM Employee GROUP BY department ORDER BY emp_count DESC;
